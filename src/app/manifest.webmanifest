@@ -1,0 +1,63 @@
+{
+  "name": "Zynkart - Free Online Store Builder for Nigerian Sellers",
+  "short_name": "Zynkart",
+  "description": "Create a free online store in minutes. Stop 'DM for price', build a storefront with inventory, invoicing, and Nigerian payment integration (Paystack, Flutterwave).",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "theme_color": "#F97316",
+  "background_color": "#18181B",
+  "icons": [
+    {
+      "src": "/icons/web/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/icons/web/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/web/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/icons/web/icon-192-maskable.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/web/icon-512-maskable.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "shopping",
+    "productivity",
+    "finance"
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/image.png",
+      "type": "image/png",
+      "sizes": "1866x959",
+      "form_factor": "wide",
+      "label": "Zynkart - Online Store Dashboard"
+    }
+  ],
+  "scope": "/",
+  "lang": "en-NG",
+  "dir": "ltr",
+  "orientation": "portrait",
+  "prefer_related_applications": false,
+  "capture_links": "new-client",
+  "related_applications": [],
+  "iarc_rating_id": "",
+  "id": "zynkart-store-builder"
+}

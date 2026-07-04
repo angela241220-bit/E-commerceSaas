@@ -1,0 +1,12 @@
+import React from "react";
+import Cart from "@/components/store-front/cart";
+import { getStoreForHomePage } from "@/lib/store-utils";
+const page = async ({ params }) => {
+    const { storeSlug } = await params;
+    const storeData = await getStoreForHomePage(storeSlug);
+    if (!storeData) {
+        return <div>Store not found</div>;
+    }
+    return <Cart store={storeData}/>;
+};
+export default page;

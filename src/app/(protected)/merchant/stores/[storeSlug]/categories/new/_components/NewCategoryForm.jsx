@@ -1,0 +1,228 @@
+"use client";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { useState, useTransition } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { CreateCategorySchema } from "@/schemas";
+import { Input } from "@/components/ui/input";
+import { ArrowLeft, Loader2, X } from "lucide-react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription, } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { FormError } from "@/components/ui/form-error";
+import { FormSuccess } from "@/components/ui/form-success";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, } from "@/components/ui/card";
+import { createCategory } from "@/actions/category/create";
+import Image from "next/image";
+import { Alert } from "@/components/ui/alert";
+import { convertBlobUrlToFile } from "@/lib/convert-blob-url-to-file";
+import { uploadImage } from "@/lib/supabase/storage/client";
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const MAX_FILES = 1;
+const NewCategoryForm = ({ storeId, merchantId, storeSlug, }) => {
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+    const [isPending, startTransition] = useTransition();
+    const router = useRouter();
+    const [imageUrls, setImageUrls] = useState([]);
+    const [imageError, setImageError] = useState("");
+    const [isDragOver, setIsDragOver] = useState(false);
+    const imageInputRef = useRef(null);
+    const form = useForm({
+        resolver: zodResolver(CreateCategorySchema),
+        defaultValues: {
+            name: "",
+            storeId: storeId,
+            merchantId: merchantId,
+        },
+    });
+    const processFiles = (files) => {
+        if (imageUrls.length + files.length > MAX_FILES) {
+            setImageError(`Maximum ${MAX_FILES} image allowed`);
+            return;
+        }
+        const invalidFiles = files.filter((file) => file.size > MAX_FILE_SIZE);
+        if (invalidFiles.length > 0) {
+            setImageError(`Image exceeds ${MAX_FILE_SIZE / 1024 / 1024}MB limit`);
+            return;
+        }
+        const invalidTypes = files.filter((file) => !file.type.startsWith('image/'));
+        if (invalidTypes.length > 0) {
+            setImageError("Please select only image files");
+            return;
+        }
+        setImageError("");
+        const newImageUrls = files.map((file) => URL.createObjectURL(file));
+        setImageUrls([...imageUrls, ...newImageUrls]);
+    };
+    const handleImageChange = (e) => {
+        const files = e.target.files;
+        if (!files)
+            return;
+        const filesArray = Array.from(files);
+        processFiles(filesArray);
+    };
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        setIsDragOver(true);
+    };
+    const handleDragLeave = (e) => {
+        e.preventDefault();
+        setIsDragOver(false);
+    };
+    const handleDrop = (e) => {
+        e.preventDefault();
+        setIsDragOver(false);
+        const files = Array.from(e.dataTransfer.files);
+        if (files.length === 0)
+            return;
+        processFiles(files);
+    };
+    const removeImage = (indexToRemove) => {
+        setImageUrls((prev) => prev.filter((_, index) => index !== indexToRemove));
+    };
+    const onSubmit = (values) => {
+        setError("");
+        setSuccess("");
+        startTransition(async () => {
+            try {
+                let imageUrl = undefined;
+                if (imageUrls.length > 0) {
+                    const imageFile = await convertBlobUrlToFile(imageUrls[0]);
+                    const { imageUrl: uploadedUrl, error } = await uploadImage({
+                        file: imageFile,
+                        bucket: process.env.NEXT_PUBLIC_SUPABASE_BUCKET,
+                        folder: "categories",
+                    });
+                    if (error)
+                        throw new Error(`Failed to upload image: ${error}`);
+                    imageUrl = uploadedUrl;
+                }
+                const finalValues = {
+                    ...values,
+                    imageUrl,
+                };
+                const result = await createCategory(finalValues);
+                if (!result.success) {
+                    setError(result.error?.message);
+                    return;
+                }
+                setSuccess("Category created successfully!");
+                form.reset();
+                router.push(`/merchant/stores/${storeSlug}/categories`);
+                router.refresh();
+            }
+            catch (error) {
+                console.error(error);
+                setError("Something went wrong. Please try again.");
+            }
+        });
+    };
+    return (<div className="min-h-screen bg-background">
+      <div className="w-full max-w-3xl mx-auto p-4 pt-20 space-y-6">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+          <Link href={`/merchant/stores/${storeSlug}/categories`} className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
+            <ArrowLeft className="w-4 h-4 mr-2"/>
+            Back to categories
+          </Link>
+
+          <Card className="w-full">
+            <CardHeader>
+              <CardTitle>Create New Category</CardTitle>
+              <CardDescription>
+                Add a new category to organize your products
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="space-y-4">
+                    <div className="flex flex-col gap-4">
+                      <div>
+                        <h3 className="text-lg font-medium">Category Image</h3>
+                        <p className="text-sm text-gray-500">
+                          Upload 1 image (max {MAX_FILE_SIZE / 1024 / 1024}
+                          MB). This is optional.
+                        </p>
+                      </div>
+
+                      <input type="file" hidden accept="image/*" ref={imageInputRef} onChange={handleImageChange} disabled={isPending || imageUrls.length >= MAX_FILES}/>
+
+                      <div className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${isDragOver
+            ? "border-primary bg-primary/5"
+            : "border-gray-300 hover:border-gray-400"} ${isPending || imageUrls.length >= MAX_FILES
+            ? "opacity-50 cursor-not-allowed"
+            : "cursor-pointer"}`} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop} onClick={() => {
+            if (!isPending && imageUrls.length < MAX_FILES) {
+                imageInputRef.current?.click();
+            }
+        }}>
+                        <div className="flex flex-col items-center gap-2">
+                          <div className="w-12 h-12 border border-gray-300 rounded-lg flex items-center justify-center">
+                            <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                            </svg>
+                          </div>
+                          <div className="text-sm">
+                            <p className="font-medium text-gray-900">
+                              {isDragOver
+            ? "Drop category image here"
+            : "Drag and drop category image here"}
+                            </p>
+                            <p className="text-gray-500">
+                              or click to select file (optional)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {imageError && (<Alert variant="destructive">{imageError}</Alert>)}
+
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                        {imageUrls.map((url, index) => (<div key={url} className="relative group">
+                            <Image src={url} width={500} height={375} alt={`Category image ${index + 1}`} className="object-cover rounded-lg aspect-[4/3] w-full h-full"/>
+                            <button type="button" onClick={() => removeImage(index)} className="absolute top-2 right-2 p-1 bg-red-500 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                              <X className="h-4 w-4"/>
+                            </button>
+                          </div>))}
+                      </div>
+                    </div>
+                    <FormField control={form.control} name="name" render={({ field }) => (<FormItem>
+                          <FormLabel>Category Name</FormLabel>
+                          <FormControl>
+                            <Input {...field} disabled={isPending} placeholder="e.g., Electronics, Clothing, Books" type="text" className="h-12"/>
+                          </FormControl>
+                          <FormDescription>
+                            This name will be displayed to your customers
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>)}/>
+                  </div>
+
+                  <FormError message={error}/>
+                  <FormSuccess message={success}/>
+
+                  <div className="flex flex-col gap-4 sm:flex-row sm:justify-end">
+                    <Button type="button" variant="outline" disabled={isPending} asChild>
+                      <Link href={`/merchant/stores/${storeSlug}/categories`}>
+                        Cancel
+                      </Link>
+                    </Button>
+                    <Button disabled={isPending} type="submit" className="min-w-[120px]">
+                      {isPending ? (<>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin"/>
+                          Creating...
+                        </>) : ("Create Category")}
+                    </Button>
+                  </div>
+                </form>
+              </Form>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+    </div>);
+};
+export default NewCategoryForm;

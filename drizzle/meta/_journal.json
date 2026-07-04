@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1749457428606,
+      "tag": "0000_tranquil_orphan",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1749646873011,
+      "tag": "0001_hesitant_purifiers",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1750397379908,
+      "tag": "0002_safe_king_cobra",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1750536065355,
+      "tag": "0003_giant_aqueduct",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1750588895040,
+      "tag": "0004_goofy_starbolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1750834059849,
+      "tag": "0005_concerned_ronan",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1750924500778,
+      "tag": "0006_mean_lilith",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1773673904699,
+      "tag": "0007_ambitious_doctor_spectrum",
+      "breakpoints": true
+    }
+  ]
+}
