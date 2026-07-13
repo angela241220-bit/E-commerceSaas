@@ -41,6 +41,7 @@ const ProductsPage = ({ storeData, merchantId }) => {
     const products = data?.products || [];
     const totalProducts = data?.totalProducts || 0;
     const totalPages = Math.ceil(totalProducts / ITEMS_PER_PAGE);
+    const newProductPath = `/merchant/stores/${storeData.slug}/products/new`;
     const handlePageChange = (page) => {
         const params = new URLSearchParams(searchParams.toString());
         params.set("page", page.toString());
@@ -74,13 +75,13 @@ const ProductsPage = ({ storeData, merchantId }) => {
           Create a product to start selling
         </p>
         <div className="flex flex-col items-center gap-4">
-          {canCreateProduct ? (<Link href="products/new" className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+          {canCreateProduct ? (<Link href={newProductPath} className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
               Add Product <Plus size={16}/>
             </Link>) : (<>
               <Badge variant="destructive" className="text-xs">
                 Product Limit Reached
               </Badge>
-              <Button onClick={() => window.open("/pricing", "_blank")} className="flex items-center gap-2">
+              <Button onClick={() => window.open("/#pricing", "_blank")} className="flex items-center gap-2">
                 <Crown size={16}/>
                 Upgrade to Add Products
               </Button>
@@ -115,12 +116,12 @@ const ProductsPage = ({ storeData, merchantId }) => {
                 <Badge variant="destructive" className="text-xs">
                   Limit Reached
                 </Badge>
-                <Button size="sm" onClick={() => window.open("/pricing", "_blank")}>
+                <Button size="sm" onClick={() => window.open("/#pricing", "_blank")}>
                   <Crown className="h-4 w-4 mr-2"/>
                   Upgrade
                 </Button>
               </>)}
-            {canCreateProduct && (<Link href="products/new">
+            {canCreateProduct && (<Link href={newProductPath}>
                 <Button size="sm">
                   <Plus className="h-4 w-4 mr-2"/>
                   Add Product
