@@ -6,6 +6,18 @@ function getStorage() {
     return storage;
 }
 export const uploadImage = async ({ file, bucket, folder }) => {
+    if (!bucket) {
+        return {
+            imageUrl: "",
+            error: "Supabase storage bucket is not configured",
+        };
+    }
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+        return {
+            imageUrl: "",
+            error: "Supabase URL is not configured",
+        };
+    }
     const fileName = file.name;
     const fileExtension = fileName.slice(fileName.lastIndexOf(".") + 1);
     const path = `${folder ? folder + "/" : ""}${uuidv4()}.${fileExtension}`;
@@ -21,10 +33,21 @@ export const uploadImage = async ({ file, bucket, folder }) => {
     const storage = getStorage();
     const { data, error } = await storage.from(bucket).upload(path, file);
     if (error) {
-        return { imageUrl: "", error: "Image upload failed" };
+        console.error("Supabase image upload failed", {
+            bucket,
+            path,
+            message: error.message,
+            statusCode: error.statusCode,
+        });
+        return {
+            imageUrl: "",
+            error: error.message || "Image upload failed",
+        };
     }
-    const imageUrl = `${process.env
-        .NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${bucket}/${data?.path}`;
+    const { data: publicUrlData } = storage
+        .from(bucket)
+        .getPublicUrl(data?.path || path);
+    const imageUrl = publicUrlData.publicUrl;
     return { imageUrl, error: "" };
 };
 export const deleteImage = async (imageUrl) => {

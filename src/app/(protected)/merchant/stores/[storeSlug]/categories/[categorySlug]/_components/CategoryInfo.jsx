@@ -1,9 +1,10 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { getCategoryProductsWithPagination } from "@/actions/category/get-category-products-with-pagination";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Box, Link, Plus } from "lucide-react";
+import { Box, Plus } from "lucide-react";
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, } from "@/components/ui/pagination";
 import GenericProductList from "@/components/GenericProductList";
 const ITEMS_PER_PAGE = 20;
@@ -60,7 +61,7 @@ const CategoryInfo = ({ category, storeSlug }) => {
         <p className="text-muted-foreground text-center max-w-md">
           Create a product to start selling
         </p>
-        <Link href="products/new" className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+        <Link href={`/merchant/stores/${storeSlug}/products/new`} className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
           Add Product <Plus size={16}/>
         </Link>
       </div>);

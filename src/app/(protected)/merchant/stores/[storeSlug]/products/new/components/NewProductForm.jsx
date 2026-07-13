@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { ArrowLeft, Loader2, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription, } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,7 @@ const NewProductForm = ({ storeData, categories,
 // colors,
 // sizes,
 vendors, tags, merchantId, storeSlug, }) => {
+    const router = useRouter();
     const [categoryInputType, setCategoryInputType] = useState("select");
     const [vendorInputType, setVendorInputType] = useState("select");
     const [imageUrls, setImageUrls] = useState([]);
@@ -186,10 +188,8 @@ vendors, tags, merchantId, storeSlug, }) => {
             setSelectedTags([]);
             setNewTags([]);
             setNewTagInput("");
-            // Redirect to products page
-            // router.push(`/merchant/stores/${storeSlug}/products`);
-            // router.refresh();
-            window.location.reload();
+            router.push(`/merchant/stores/${storeSlug}/products`);
+            router.refresh();
         },
         onError: (error) => {
             setError(error.message);
@@ -387,7 +387,7 @@ vendors, tags, merchantId, storeSlug, }) => {
                           You have used {current} of{" "}
                           {limit === -1 ? "unlimited" : limit} allowed products.
                         </p>)}
-                      {upgradeRequired && suggestedPlan && (<Button type="button" size="sm" onClick={() => window.open("/pricing", "_blank")} className="bg-amber-600 hover:bg-amber-700 text-white">
+                      {upgradeRequired && suggestedPlan && (<Button type="button" size="sm" onClick={() => window.open("/#pricing", "_blank")} className="bg-amber-600 hover:bg-amber-700 text-white">
                           <Crown className="h-4 w-4 mr-2"/>
                           Upgrade to {suggestedPlan.toUpperCase()}
                         </Button>)}
