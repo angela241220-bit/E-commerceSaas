@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { updateStore } from "@/actions/store";
 import { toast } from "sonner";
+import { getStoreDisplayUrl, getStoreUrl } from "@/lib/store-url";
 const StoreInfo = ({ storeInfo, }) => {
     const [editMode, setEditMode] = useState(false);
     const [isPending, startTransition] = useTransition();
@@ -70,8 +71,8 @@ const StoreInfo = ({ storeInfo, }) => {
                     <FormDescription>
                       <span className="text-sm text-muted-foreground">
                         Domain:{" "}
-                        <Link className="font-bold underline" href={`https://${storeInfo.slug}.${process.env.NEXT_PUBLIC_APP_URL}`} target="_blank">
-                          {storeInfo.slug}.{process.env.NEXT_PUBLIC_APP_URL}
+                        <Link className="font-bold underline" href={getStoreUrl(storeInfo.slug)} target="_blank">
+                          {getStoreDisplayUrl(storeInfo.slug)}
                         </Link>
                       </span>
                     </FormDescription>
