@@ -2,6 +2,7 @@ import db from "@/db";
 import { order } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
+import { getStoreUrl } from "@/lib/store-url";
 export async function GET(req) {
     console.log("GET /api/store/order/confirmation");
     const { searchParams } = new URL(req.url);
@@ -37,11 +38,7 @@ export async function GET(req) {
                 return new NextResponse("Order not found", { status: 404 });
             }
             console.log("Payment verified");
-            const appBaseUrl = (process.env.NEXT_PUBLIC_APP_BASE_URL || "zynkart.store")
-                .replace(/^https?:\/\//, "")
-                .replace(/\/$/, "");
-            const appProtocol = process.env.NODE_ENV === "development" ? "http" : "https";
-            return NextResponse.redirect(new URL(`${appProtocol}://${storeSlug}.${appBaseUrl}/checkout/confirmed?orderId=${orderId}`, req.url));
+            return NextResponse.redirect(new URL(getStoreUrl(storeSlug, `/checkout/confirmed?orderId=${orderId}`), req.url));
         }
         else {
             return new NextResponse("Payment verification failed", { status: 400 });

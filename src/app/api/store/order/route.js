@@ -4,6 +4,7 @@ import { order, orderItem, product, store } from "@/db/schema";
 import { and, eq, inArray, or } from "drizzle-orm";
 import { orderInfoSchema } from "@/schemas";
 import { serverCustomerAuth } from "@/lib/server-auth";
+import { getAppOrigin } from "@/lib/store-url";
 export async function POST(req) {
     console.log("POST /api/store/order");
     try {
@@ -38,17 +39,12 @@ export async function POST(req) {
             });
         }
         const orderId = crypto.randomUUID();
-        const appBaseUrl = (process.env.NEXT_PUBLIC_APP_BASE_URL || "zynkart.store")
-            .replace(/^https?:\/\//, "")
-            .replace(/\/$/, "");
-        const appProtocol = process.env.NODE_ENV === "development" ? "http" : "https";
-        const storeOrigin = `${appProtocol}://${storeInfo.slug}.${appBaseUrl}`;
         // console.log(orderId);
         const paystackParams = {
             email: user.email,
             amount: orderInfo.totalAmount * 100,
             subaccount: storeInfo.bank.subaccountCode,
-            callback_url: `${storeOrigin}/api/store/order/confirmation?orderId=${orderId}&storeSlug=${storeInfo.slug}`,
+            callback_url: `${getAppOrigin()}/api/store/order/confirmation?orderId=${orderId}&storeSlug=${storeInfo.slug}`,
             metadata: {
                 storeId: orderInfo.storeId,
                 customerId: user.id,
