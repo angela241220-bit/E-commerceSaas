@@ -49,23 +49,27 @@ const NewBankPage = ({ storeData, }) => {
     const verifyAccount = async (accountNumber, bankCode) => {
         setError("");
         try {
-            console.log("Verifying:", accountNumber, bankCode);
-            const response = await fetch(`/api/banks/verify?account_number=${accountNumber}&bank_code=${bankCode}`, {
+            const params = new URLSearchParams({
+                account_number: accountNumber,
+                bank_code: bankCode,
+            });
+            const response = await fetch(`/api/banks/verify?${params.toString()}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                 },
             });
-            console.log(response);
+            const data = await response.json().catch(() => null);
             if (!response.ok) {
-                throw new Error("Failed to verify account");
+                throw new Error(data?.message || "Failed to verify account");
             }
-            const data = await response.json();
             return data;
         }
         catch (error) {
             console.error("Error verifying account:", error);
-            setError("Failed to verify account. Please check your details and try again.");
+            setError(error instanceof Error
+                ? error.message
+                : "Failed to verify account. Please check your details and try again.");
             return null;
         }
     };

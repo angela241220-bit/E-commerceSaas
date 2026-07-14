@@ -52,20 +52,33 @@ export async function addBank(values, storeSlug) {
             account_number: values.accountNumber,
             percentage_charge: 0.5,
         };
+        const secretKey = process.env.PAYSTACK_SECRET_KEY;
+        if (!secretKey) {
+            console.error("PAYSTACK_SECRET_KEY is not configured");
+            return {
+                success: false,
+                error: { message: "Payment provider is not configured." },
+                data: null,
+            };
+        }
         const response = await fetch("https://api.paystack.co/subaccount", {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+                Authorization: `Bearer ${secretKey}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(params),
         });
         if (!response.ok) {
-            const errorData = await response.json();
+            const errorData = await response.json().catch(() => null);
+            console.error("Paystack subaccount creation failed", {
+                status: response.status,
+                message: errorData?.message,
+            });
             return {
                 success: false,
                 error: {
-                    message: errorData.message ||
+                    message: errorData?.message ||
                         "Failed to create bank account with payment provider.",
                 },
                 data: null,
