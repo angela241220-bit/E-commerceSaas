@@ -1,6 +1,6 @@
 import { LandingPage } from "@/components/home";
 export const metadata = {
-    title: "Zynkart - Free Online Store for Nigerian Sellers | No More 'DM for Price'",
+    title: "Supple Store - Free Online Store for Nigerian Sellers | No More 'DM for Price'",
     description: "Create your free online store in minutes. Stop replying to DMs manually, get a professional storefront with Nigerian payment integration (Paystack, Flutterwave). Perfect for WhatsApp vendors, Instagram sellers & studentpreneurs.",
     keywords: [
         "how to sell on WhatsApp Nigeria",
@@ -28,28 +28,28 @@ export const metadata = {
         "online shop Abuja",
         "naira payment store",
     ],
-    authors: [{ name: "Zynkart", url: "https://zynkart.store" }],
-    creator: "Zynkart",
-    publisher: "Zynkart",
+    authors: [{ name: "Supple Store", url: "https://zynkart.store" }],
+    creator: "Supple Store",
+    publisher: "Supple Store",
     openGraph: {
-        title: "Zynkart - Free Online Store for Nigerian Sellers | No More 'DM for Price'",
+        title: "Supple Store - Free Online Store for Nigerian Sellers | No More 'DM for Price'",
         description: "Create your free online store in minutes. Stop replying to DMs manually, get a professional storefront with Nigerian payment integration (Paystack, Flutterwave). Perfect for WhatsApp vendors, Instagram sellers & studentpreneurs.",
         images: [
             {
                 url: "/images/screenshots/image.png",
                 width: 1919,
                 height: 1046,
-                alt: "Zynkart - Online Store Builder for Nigerian Sellers",
+                alt: "Supple Store - Online Store Builder for Nigerian Sellers",
             },
         ],
         url: "https://zynkart.store",
-        siteName: "Zynkart",
+        siteName: "Supple Store",
         type: "website",
         locale: "en_NG",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Zynkart - Free Online Store for Nigerian Sellers | No More 'DM for Price'",
+        title: "Supple Store - Free Online Store for Nigerian Sellers | No More 'DM for Price'",
         description: "Create your free online store in minutes. Stop replying to DMs manually, get a professional storefront with Nigerian payment integration (Paystack, Flutterwave). Perfect for WhatsApp vendors, Instagram sellers & studentpreneurs.",
         images: [
             {
@@ -89,7 +89,7 @@ export default function Home() {
             {
                 "@type": "Organization",
                 "@id": "https://zynkart.store/#organization",
-                "name": "Zynkart",
+                "name": "Supple Store",
                 "url": "https://zynkart.store/",
                 "logo": "https://zynkart.store/images/screenshots/image.png",
                 "sameAs": [
@@ -98,7 +98,7 @@ export default function Home() {
             },
             {
                 "@type": "SoftwareApplication",
-                "name": "Zynkart",
+                "name": "Supple Store",
                 "operatingSystem": "All",
                 "applicationCategory": "BusinessApplication",
                 "offers": {

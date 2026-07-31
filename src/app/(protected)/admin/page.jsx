@@ -80,7 +80,7 @@ const AdminPage = async () => {
           </Badge>
         </div>
         <p className="text-muted-foreground">
-          Manage your Zynkart platform with comprehensive admin tools and
+          Manage your Supple Store platform with comprehensive admin tools and
           controls.
         </p>
       </div>

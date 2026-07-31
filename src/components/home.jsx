@@ -86,7 +86,7 @@ const FEATURE_GROUPS = [
             {
                 icon: Smartphone,
                 title: "Works Perfectly on Phones",
-                description: "90% of your customers will visit from their phones. Every Zynkart store looks amazing on mobile.",
+                description: "90% of your customers will visit from their phones. Every Supple Store store looks amazing on mobile.",
             },
         ],
     },
@@ -112,7 +112,7 @@ const NEWS = [
     {
         id: 1,
         date: "JAN 16, 2026",
-        title: "How Chioma moved from WhatsApp to ₦2M monthly with her Zynkart store",
+        title: "How Chioma moved from WhatsApp to ₦2M monthly with her Supple Store store",
         category: "SUCCESS",
     },
     {
@@ -143,7 +143,7 @@ const PLANS = [
             "Standard support",
             "Basic analytics",
         ],
-        limitations: ["Zynkart branding", "Community support"],
+        limitations: ["Supple Store branding", "Community support"],
     },
     {
         name: "Pro",
@@ -160,7 +160,7 @@ const PLANS = [
             "Advanced analytics",
             "Custom domain",
         ],
-        limitations: ["Priority support", "Remove Zynkart branding"],
+        limitations: ["Priority support", "Remove Supple Store branding"],
     },
     {
         name: "Elite",
@@ -398,7 +398,7 @@ const Philosophy = () => {
                 </h3>
                 <p className="text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
                   Sign up for free, name your store, and add your branding.
-                  Zynkart provides Nigerian sellers with a clean, professional
+                  Supple Store provides Nigerian sellers with a clean, professional
                   ecommerce website. Instead of sending random screenshots and
                   relying on voice notes for social selling on WhatsApp or
                   Instagram, your customers get a seamless browsing experience.
@@ -419,7 +419,7 @@ const Philosophy = () => {
                   Step 02
                 </p>
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight mb-4">
-                  Load your products once, let Zynkart handle the details.
+                  Load your products once, let Supple Store handle the details.
                 </h3>
                 <p className="text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
                   Add products with high-quality photos, clear pricing, and
@@ -507,7 +507,7 @@ const FAQ = () => {
     const faqs = [
         {
             question: "How do I receive payments from customers?",
-            answer: "Zynkart integrates directly with reliable Nigerian payment gateways like Paystack and Flutterwave. When a customer orders, they can pay securely via USSD, bank transfer, or card. The money settles directly into your configured bank account.",
+            answer: "Supple Store integrates directly with reliable Nigerian payment gateways like Paystack and Flutterwave. When a customer orders, they can pay securely via USSD, bank transfer, or card. The money settles directly into your configured bank account.",
         },
         {
             question: "Is this better than selling through WhatsApp or Instagram DMs?",
@@ -519,11 +519,11 @@ const FAQ = () => {
         },
         {
             question: "Do I need technical skills to build my online store?",
-            answer: "Not at all. Zynkart is designed specifically for Nigerian small business owners and studentpreneurs without coding experience. Simply upload your product images, set your prices, and our platform builds the professional storefront for you instantly.",
+            answer: "Not at all. Supple Store is designed specifically for Nigerian small business owners and studentpreneurs without coding experience. Simply upload your product images, set your prices, and our platform builds the professional storefront for you instantly.",
         },
         {
             question: "Can I link my store directly to my Instagram bio?",
-            answer: "Yes! You can add your Zynkart store link directly to your Instagram or WhatsApp business profile, allowing customers to browse your full inventory independently.",
+            answer: "Yes! You can add your Supple Store store link directly to your Instagram or WhatsApp business profile, allowing customers to browse your full inventory independently.",
             link: {
                 url: "/blog/instagram-shop-nigeria",
                 text: "Guide: Starting an Instagram Shop in Nigeria",
@@ -531,7 +531,7 @@ const FAQ = () => {
         },
         {
             question: "What happens if a customer buys an item that is out of stock?",
-            answer: "Zynkart features automated inventory management. Once you set your available stock levels, the system automatically tracks sales. If an item runs out, it will be marked as 'Sold Out', preventing over-ordering and the awkwardness of refunding a customer.",
+            answer: "Supple Store features automated inventory management. Once you set your available stock levels, the system automatically tracks sales. If an item runs out, it will be marked as 'Sold Out', preventing over-ordering and the awkwardness of refunding a customer.",
         },
     ];
     const faqSchema = {
@@ -665,7 +665,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-end border-t border-zinc-800 pt-8">
           <div className="mb-8 md:mb-0">
             <h1 className="text-[15vw] md:text-[12vw] leading-[0.8] font-bold tracking-tighter text-zinc-900 uppercase select-none pointer-events-none">
-              Zynkart
+              Supple Store
             </h1>
           </div>
           <div className="flex gap-8 text-xs text-zinc-500 uppercase tracking-widest">
@@ -675,7 +675,7 @@ export const Footer = () => {
             <a href="#" className="hover:text-white transition-colors">
               Imprint
             </a>
-            <span>© 2026 Zynkart</span>
+            <span>© 2026 Supple Store</span>
           </div>
         </div>
       </div>

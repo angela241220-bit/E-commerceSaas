@@ -107,7 +107,7 @@ export function Footer({ storeSlug }) {
           <p>
             {currentYear} {store.name}. All rights reserved.
           </p>
-          <i>Made with Zynkart❤️</i>
+          <i>Made with Supple Store❤️</i>
         </div>
       </div>
     </footer>);

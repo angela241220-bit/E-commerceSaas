@@ -5,8 +5,8 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 export const metadata = {
     title: `Sign Up | ${info.name} - Free Online Store Builder`,
-    description: "Create your free Zynkart store in minutes. Sell to Nigerians easily without coding or manual DMs.",
-    keywords: ["sign up zynkart", "create online store nigeria", "free ecommerce store"],
+    description: "Create your free Supple Store store in minutes. Sell to Nigerians easily without coding or manual DMs.",
+    keywords: ["sign up supple store", "create online store nigeria", "free ecommerce store"],
 };
 const page = async () => {
     const data = await serverAuth();
@@ -20,7 +20,7 @@ const page = async () => {
             <RegisterForm />
             {/* we are not onboarding user currently
         <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-pink-600 text-2xl font-bold text-center">
-          Hey, Happy you want to try out zynkart but we are currently not
+          Hey, Happy you want to try out Supple Store but we are currently not
           onboarding users.
         </h1>
         <p className="text-center text-muted-foreground">
@@ -37,7 +37,7 @@ const page = async () => {
         {/* Abstract typography block over the image */}
         <div className="absolute inset-0 flex flex-col items-center justify-center p-20 text-center">
           <h2 className="text-[12vw] leading-[0.8] font-bold tracking-tighter uppercase text-white/10 select-none pointer-events-none mix-blend-overlay">
-            Zynkart
+            Supple Store
           </h2>
           <div className="absolute bottom-20 left-20">
             <span className="block text-xs uppercase tracking-widest text-zinc-400 mb-2">

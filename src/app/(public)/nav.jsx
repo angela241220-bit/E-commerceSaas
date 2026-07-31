@@ -37,7 +37,7 @@ export const Navigation = () => {
       <nav className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white px-6 py-6 flex justify-between items-start pointer-events-none bg-background/70 backdrop-blur-lg">
         <Link href="/" className="flex flex-col pointer-events-auto">
           <span className="font-bold text-lg tracking-tighter uppercase">
-            Zynkart
+            Supple Store
           </span>
           <span className="text-xs tracking-widest opacity-60 mt-1">
             Online Store Builder
@@ -71,7 +71,7 @@ export const Navigation = () => {
             <div className="flex justify-between items-start px-6 py-6">
               <div className="flex flex-col">
                 <span className="font-bold text-lg tracking-tighter uppercase">
-                  Zynkart
+                  Supple Store
                 </span>
               </div>
               <button onClick={() => setIsOpen(false)} className="group flex items-center gap-2 hover:text-zinc-400 transition-colors">

@@ -101,7 +101,7 @@ export default function EnhancedHero() {
               </motion.div>
               <motion.h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight" variants={itemVariants}>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-pink-600">
-                  Zynkart
+                  Supple Store
                 </span>
                 <span className="block mt-1 text-gray-800 dark:text-white">
                   Sell Without Limits
@@ -178,7 +178,7 @@ export default function EnhancedHero() {
             {/* 3D Product Showcase */}
             <div className="relative">
               <motion.div className="relative animate-float" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.8 }}>
-                <Image src="/images/hero-image.png" width={600} height={600} alt="Zynkart shopping experience with various products" className="w-full h-auto drop-shadow-2xl" priority/>
+                <Image src="/images/hero-image.png" width={600} height={600} alt="Supple Store shopping experience with various products" className="w-full h-auto drop-shadow-2xl" priority/>
               </motion.div>
 
               {/* Floating elements */}

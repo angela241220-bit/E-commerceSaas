@@ -144,7 +144,7 @@ export default function HowItWorks() {
               </h3>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 Join thousands of entrepreneurs who have built successful online
-                businesses with Zynkart. Our platform handles the technical
+                businesses with Supple Store. Our platform handles the technical
                 complexity so you can focus on what matters most - growing your
                 business.
               </p>

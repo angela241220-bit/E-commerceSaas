@@ -336,7 +336,7 @@ export class FeatureLimitService {
                 featureKey: "zynkart_branding",
                 limitType: "boolean",
                 limitValue: 1,
-                description: "Zynkart branding display (1 = shown, 0 = hidden)",
+                description: "Supple Store branding display (1 = shown, 0 = hidden)",
             },
             {
                 planType: "free",
@@ -379,7 +379,7 @@ export class FeatureLimitService {
                 featureKey: "zynkart_branding",
                 limitType: "boolean",
                 limitValue: 0,
-                description: "Zynkart branding display (1 = shown, 0 = hidden)",
+                description: "Supple Store branding display (1 = shown, 0 = hidden)",
             },
             {
                 planType: "pro",
@@ -422,7 +422,7 @@ export class FeatureLimitService {
                 featureKey: "zynkart_branding",
                 limitType: "boolean",
                 limitValue: 0,
-                description: "Zynkart branding display (1 = shown, 0 = hidden)",
+                description: "Supple Store branding display (1 = shown, 0 = hidden)",
             },
             {
                 planType: "elite",

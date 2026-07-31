@@ -75,7 +75,7 @@ export function CreateFeatureLimitDialog({ children, onSuccess, }) {
         { value: "stores_count", label: "Stores Count" },
         { value: "products_count", label: "Products Count" },
         { value: "custom_domain", label: "Custom Domain" },
-        { value: "zynkart_branding", label: "Zynkart Branding" },
+        { value: "zynkart_branding", label: "Supple Store Branding" },
         { value: "api_mode", label: "API Mode" },
         { value: "templates_access", label: "Templates Access" },
     ];
