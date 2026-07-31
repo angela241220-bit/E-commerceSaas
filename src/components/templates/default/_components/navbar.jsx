@@ -9,7 +9,7 @@ import { useState } from "react";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { useQuery } from "@tanstack/react-query";
 import { categoryList } from "@/actions/store/public/category/list";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { usePathname } from "next/navigation";
 import NavUser from "@/components/nav-user";
 import { ModeToggle } from "@/components/mode-toggle";

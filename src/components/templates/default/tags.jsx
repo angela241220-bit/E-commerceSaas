@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getTags } from "@/actions/store/public/tags";
 import { Footer } from "./_components/footer";
 import { SiteHeader } from "./_components/navbar";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 export default function TagsPage({ store }) {

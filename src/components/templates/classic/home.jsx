@@ -5,7 +5,7 @@ import { ProductWheel } from "./_components/product-wheel";
 import { Banners } from "./_components/banners";
 import ByCategories from "./_components/by-categories";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Link from "@/components/store-link";
 export default function Home({ store }) {
     return (<section className="min-h-screen bg-[#fff] md:pt-16 pt-24 flex flex-col dark:bg-[#252525]">
       <Navbar storeSlug={store.slug} storeName={store.name} storeId={store.id}/>

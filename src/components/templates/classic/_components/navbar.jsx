@@ -6,7 +6,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import NavUser from "@/components/nav-user";
 import { Input } from "@/components/ui/input";
 import { HelpCircleIcon, Menu, PackageIcon, PercentIcon, SearchIcon, SettingsIcon, ShoppingBasket, ShoppingCartIcon, TagsIcon, } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -14,6 +14,7 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { categoryList } from "@/actions/store/public/category/list";
 import { useQuery } from "@tanstack/react-query";
+import { useStorePath } from "@/providers/store-path-provider";
 const LIMIT = 7;
 const data = {
     user: {
@@ -66,11 +67,12 @@ export default function Navbar({ storeSlug, storeName, storeId, }) {
     const [isOpen, setIsOpen] = useState(false);
     const currentPath = usePathname();
     const router = useRouter();
+    const storePath = useStorePath();
     function handleSearch(e) {
         e.preventDefault();
         if (!query)
             return;
-        router.push(`/search?q=${query}`);
+        router.push(storePath(`/search?q=${query}`));
     }
     return (<header className="w-full bg-white/60 dark:bg-black/70 text-black dark:text-white backdrop-blur-lg py-2 px-4 fixed top-0 left-0 right-0 z-50 flex flex-col gap-1">
       <nav className="flex items-center justify-between gap-5">

@@ -2,7 +2,7 @@
 import NavUser from "@/components/nav-user";
 import Cart from "@/components/cart";
 import { ShoppingBag, Search } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import React, { useState } from "react";
 import GlobalSearch from "@/components/global-search";
 const Navbar = ({ storeSlug, storeName, }) => {

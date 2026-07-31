@@ -26,7 +26,22 @@ export function getAppBaseHost() {
         "zynkart.store");
 }
 export function getAppProtocol() {
-    return process.env.NODE_ENV === "development" ? "http" : "https";
+    const configuredUrl = process.env.NEXT_PUBLIC_APP_BASE_URL ||
+        process.env.NEXT_PUBLIC_APP_URL ||
+        process.env.VERCEL_URL ||
+        "";
+    if (configuredUrl.includes("://")) {
+        try {
+            return new URL(configuredUrl).protocol.replace(":", "");
+        }
+        catch {
+            // Fall through to host-based protocol detection.
+        }
+    }
+    const host = getAppBaseHost();
+    return host.startsWith("localhost") || host.startsWith("127.0.0.1")
+        ? "http"
+        : "https";
 }
 export function usesPathBasedStoreUrls(host = getAppBaseHost()) {
     return (host.startsWith("localhost") ||

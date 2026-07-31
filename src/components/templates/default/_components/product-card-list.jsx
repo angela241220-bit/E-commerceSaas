@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCartStore } from "@/store/cart";
 import formatPrice from "@/lib/price-formatter";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { saveProduct, unsaveProduct, } from "@/actions/store/public/saved/products";
 import Image from "next/image";
 const ProductCardList = ({ product, isInitiallySaved = false, }) => {
@@ -20,7 +20,7 @@ const ProductCardList = ({ product, isInitiallySaved = false, }) => {
             name: product.name,
             price: product.price,
             quantity: 1,
-            image: product.images[0].url,
+            image: product.images[0]?.url || "/placeholder.svg",
             inStock: product?.inStock,
             productSlug: product.slug,
             trackQuantity: product.trackQuantity,
@@ -81,7 +81,7 @@ const ProductCardList = ({ product, isInitiallySaved = false, }) => {
       <div className="flex flex-col sm:flex-row">
         <div className="relative w-full sm:w-48 h-48">
           <Link href={`/products/${product.slug}`} className="block h-full">
-            <Image src={product.images[0]?.url || "/placeholder.png"} alt={product.images[0]?.alt || product.name} className="object-cover w-full h-full hover:scale-105 transition-transform duration-500 cursor-pointer" width={500} height={500}/>
+            <Image src={product.images[0]?.url || "/placeholder.svg"} alt={product.images[0]?.alt || product.name} className="object-cover w-full h-full hover:scale-105 transition-transform duration-500 cursor-pointer" width={500} height={500}/>
           </Link>
 
           {product.trackQuantity && product.inStock <= 0 && (<Badge variant="secondary" className="absolute top-2 left-2">

@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { useCartStore } from "@/store/cart";
 export default function Cart({ Icon, variant = "outline", }) {
     const cartItemsCount = useCartStore((state) => state.items.reduce((total, item) => total + item.quantity, 0));

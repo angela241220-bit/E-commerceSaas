@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useStorePath } from "@/providers/store-path-provider";
 const GlobalSearch = ({ isOpen, setIsOpen, bgColor = "bg-background/90", }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchHistory, setSearchHistory] = useState([]);
     const router = useRouter();
+    const storePath = useStorePath();
     useEffect(() => {
         const storedHistory = localStorage.getItem("searchHistory");
         if (storedHistory) {
@@ -36,12 +38,12 @@ const GlobalSearch = ({ isOpen, setIsOpen, bgColor = "bg-background/90", }) => {
         ].slice(0, 5);
         setSearchHistory(newHistory);
         localStorage.setItem("searchHistory", JSON.stringify(newHistory));
-        router.push(`/search?q=${searchQuery}`);
+        router.push(storePath(`/search?q=${searchQuery}`));
         setIsOpen(false);
     };
     const handleRecentSearchClick = (item) => {
         setSearchQuery(item);
-        router.push(`/search?q=${item}`);
+        router.push(storePath(`/search?q=${item}`));
         setIsOpen(false);
     };
     const handleFormSubmit = (e) => {

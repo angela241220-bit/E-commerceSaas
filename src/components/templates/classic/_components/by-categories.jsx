@@ -6,7 +6,7 @@ import { getSavedProductIds, saveProduct, unsaveProduct, } from "@/actions/store
 import { useState, useEffect, useMemo } from "react";
 import { toast } from "sonner";
 import AddToCart from "@/components/add-to-cart";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { Button } from "@/components/ui/button";
 import { Card, CardFooter } from "@/components/ui/card";
 import { Heart } from "lucide-react";
