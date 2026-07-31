@@ -12,8 +12,7 @@ const page = async ({ params }) => {
     }
     const customer = await serverCustomerAuth();
     if (!customer) {
-        const checkoutUrl = getStoreUrl(storeSlug, "/checkout");
-        return redirect(getStoreUrl(storeSlug, `/sign-in?callbackUrl=${encodeURIComponent(checkoutUrl)}`));
+        return redirect(getStoreUrl(storeSlug, `/sign-in?callbackUrl=${encodeURIComponent("/checkout")}`));
     }
     const shippingZones = await getShippingZonesForStore(storeData.id);
     return <Checkout store={storeData} shippingZones={shippingZones} customer={customer}/>;

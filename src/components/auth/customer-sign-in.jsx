@@ -9,13 +9,16 @@ import { signInCustomer } from "@/actions/customer";
 import { toast } from "sonner";
 import { useTransition } from "react";
 import { Loader } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card";
+import { useStorePath } from "@/providers/store-path-provider";
+import { resolveStoreCallback } from "@/lib/store-callback";
 export const CustomerSignInForm = ({ store, }) => {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const callbackUrl = searchParams.get("callbackUrl") || "/account";
+    const storePath = useStorePath();
+    const callbackUrl = resolveStoreCallback(searchParams.get("callbackUrl"), storePath);
     const [isPending, startTransition] = useTransition();
     const form = useForm({
         resolver: zodResolver(customerSignInSchema),
@@ -33,7 +36,8 @@ export const CustomerSignInForm = ({ store, }) => {
             if (success) {
                 toast.success(success);
                 form.reset();
-                router.push(callbackUrl);
+                router.replace(callbackUrl);
+                router.refresh();
             }
             if (error) {
                 toast.error(error);
@@ -82,7 +86,7 @@ export const CustomerSignInForm = ({ store, }) => {
           </div>
           <div className="text-center text-sm">
             Don&apos;t have an account?{" "}
-            <Link href={`/sign-up?callbackUrl=${callbackUrl}`} className="underline underline-offset-4">
+            <Link href={`/sign-up?callbackUrl=${encodeURIComponent(callbackUrl)}`} className="underline underline-offset-4">
               Sign up
             </Link>
           </div>
