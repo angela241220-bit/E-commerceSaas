@@ -35,6 +35,7 @@ export default function Checkout({ shippingZones, customer, cardBg, store, }) {
     const [showSavedAddresses, setShowSavedAddresses] = useState(true);
     const form = useForm({
         resolver: zodResolver(checkoutSchema),
+        mode: "onChange",
         defaultValues: {
             address: "",
             primaryPhone: "",
@@ -52,10 +53,10 @@ export default function Checkout({ shippingZones, customer, cardBg, store, }) {
                 const defaultAddress = result.data.find((addr) => addr.isDefault);
                 if (defaultAddress) {
                     setSelectedSavedAddress(defaultAddress.id);
-                    form.setValue("address", defaultAddress.address);
-                    form.setValue("primaryPhone", defaultAddress.primaryPhone);
-                    form.setValue("secondaryPhone", defaultAddress.secondaryPhone || "");
-                    form.setValue("additionalInfo", defaultAddress.additionalInfo || "");
+                    form.setValue("address", defaultAddress.address, { shouldValidate: true });
+                    form.setValue("primaryPhone", defaultAddress.primaryPhone, { shouldValidate: true });
+                    form.setValue("secondaryPhone", defaultAddress.secondaryPhone || "", { shouldValidate: true });
+                    form.setValue("additionalInfo", defaultAddress.additionalInfo || "", { shouldValidate: true });
                 }
             }
         }
@@ -71,10 +72,10 @@ export default function Checkout({ shippingZones, customer, cardBg, store, }) {
     const total = subtotal + shippingFee;
     const handleSavedAddressSelect = (address) => {
         setSelectedSavedAddress(address.id);
-        form.setValue("address", address.address);
-        form.setValue("primaryPhone", address.primaryPhone);
-        form.setValue("secondaryPhone", address.secondaryPhone || "");
-        form.setValue("additionalInfo", address.additionalInfo || "");
+        form.setValue("address", address.address, { shouldValidate: true });
+        form.setValue("primaryPhone", address.primaryPhone, { shouldValidate: true });
+        form.setValue("secondaryPhone", address.secondaryPhone || "", { shouldValidate: true });
+        form.setValue("additionalInfo", address.additionalInfo || "", { shouldValidate: true });
         setShowSavedAddresses(false);
     };
     async function onSubmit(values) {
