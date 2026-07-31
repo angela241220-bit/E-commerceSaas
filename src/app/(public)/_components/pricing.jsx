@@ -26,7 +26,7 @@ export default function Pricing() {
                 { name: "Advanced analytics", included: false },
             ],
             limitations: [
-                "Zynkart branding included",
+                "Supple Store branding included",
                 "Community support only",
                 "No advanced automation",
             ],
@@ -50,7 +50,7 @@ export default function Pricing() {
                 { name: "Basic API access", included: true },
                 { name: "SEO tools", included: true },
             ],
-            limitations: ["Remove Zynkart branding", "Priority support"],
+            limitations: ["Remove Supple Store branding", "Priority support"],
         },
         {
             name: "Elite",

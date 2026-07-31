@@ -12,11 +12,11 @@ export async function generateMetadata({ params, }) {
     const post = getPostBySlug(slug);
     if (!post) {
         return {
-            title: "Post Not Found | Zynkart Blog",
+            title: "Post Not Found | Supple Store Blog",
         };
     }
     return {
-        title: `${post.title} | Zynkart Blog`,
+        title: `${post.title} | Supple Store Blog`,
         description: post.description,
         keywords: post.tags,
         authors: [{ name: post.author }],
@@ -35,7 +35,7 @@ export async function generateMetadata({ params, }) {
                 },
             ],
             url: `https://zynkart.store/blog/${slug}`,
-            siteName: "Zynkart",
+            siteName: "Supple Store",
             locale: "en_NG",
         },
         twitter: {
@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }) {
         },
         publisher: {
             "@type": "Organization",
-            name: "Zynkart",
+            name: "Supple Store",
             logo: {
                 "@type": "ImageObject",
                 url: "https://zynkart.store/logo.png",

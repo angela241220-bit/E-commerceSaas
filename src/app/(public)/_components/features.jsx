@@ -150,7 +150,7 @@ export default function Features() {
               Ready to Scale Your Business?
             </motion.h3>
             <motion.p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} viewport={{ once: true }}>
-              Join thousands of merchants who have chosen Zynkart to power their
+              Join thousands of merchants who have chosen Supple Store to power their
               online stores. No setup fees, no hidden costs.
             </motion.p>
             <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} viewport={{ once: true }}>

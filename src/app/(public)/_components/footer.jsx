@@ -68,7 +68,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent">
-                Zynkart
+                Supple Store
               </h3>
               <p className="text-gray-400 mt-4 leading-relaxed">
                 The commerce platform that unifies storefronts, inventory,
@@ -145,7 +145,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-sm">
-              © 2026 Zynkart. All rights reserved.
+              © 2026 Supple Store. All rights reserved.
             </div>
 
             <div className="flex items-center gap-6">

@@ -1,6 +1,6 @@
 {
-  "name": "Zynkart - Free Online Store Builder for Nigerian Sellers",
-  "short_name": "Zynkart",
+  "name": "Supple Store - Free Online Store Builder for Nigerian Sellers",
+  "short_name": "Supple Store",
   "description": "Create a free online store in minutes. Stop 'DM for price', build a storefront with inventory, invoicing, and Nigerian payment integration (Paystack, Flutterwave).",
   "start_url": "/",
   "display": "standalone",
@@ -48,7 +48,7 @@
       "type": "image/png",
       "sizes": "1866x959",
       "form_factor": "wide",
-      "label": "Zynkart - Online Store Dashboard"
+      "label": "Supple Store - Online Store Dashboard"
     }
   ],
   "scope": "/",

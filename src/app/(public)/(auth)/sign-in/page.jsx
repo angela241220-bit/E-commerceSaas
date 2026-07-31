@@ -6,8 +6,8 @@ import { serverAuth } from "@/lib/server-auth";
 import Image from "next/image";
 export const metadata = {
     title: `Sign In | ${info.name} - Free Online Store Builder`,
-    description: "Sign in to manage your Zynkart store, check orders, and update inventory. The easiest way to sell online in Nigeria.",
-    keywords: ["sign in zynkart", "login zynkart", "nigeria online store login"],
+    description: "Sign in to manage your Supple Store store, check orders, and update inventory. The easiest way to sell online in Nigeria.",
+    keywords: ["sign in supple store", "login supple store", "nigeria online store login"],
 };
 const page = async () => {
     const data = await serverAuth();
@@ -31,7 +31,7 @@ const page = async () => {
         {/* Abstract typography block over the image */}
         <div className="absolute inset-0 flex flex-col items-center justify-center p-20 text-center">
           <h2 className="text-[12vw] leading-[0.8] font-bold tracking-tighter uppercase text-white/10 select-none pointer-events-none mix-blend-overlay">
-            Zynkart
+            Supple Store
           </h2>
           <div className="absolute bottom-20 left-20">
             <span className="block text-xs uppercase tracking-widest text-zinc-400 mb-2">

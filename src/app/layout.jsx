@@ -4,7 +4,7 @@ import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 import { ReactQueryProvider } from "@/providers/react-query-provider";
 // Minimal root metadata - marketing SEO is defined in (public) route
-// This prevents Zynkart branding from appearing on customer store pages
+// This prevents Supple Store branding from appearing on customer store pages
 export const metadata = {
     icons: [
         {

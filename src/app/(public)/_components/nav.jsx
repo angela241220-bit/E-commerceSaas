@@ -19,7 +19,7 @@ const PublicNav = () => {
             <Link href={"/"}>
               <ShoppingCart />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-pink-600">
-                Zynkart
+                Supple Store
               </span>
             </Link>
           </Button>
@@ -59,7 +59,7 @@ const PublicNav = () => {
                     <Link href={"/"}>
                       <ShoppingCart />
                       <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-pink-600">
-                        Zynkart
+                        Supple Store
                       </span>
                     </Link>
                   </Button>

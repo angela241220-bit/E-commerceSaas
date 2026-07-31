@@ -8,7 +8,7 @@ export default function Testimonials() {
             name: "Sarah Chen",
             role: "Founder, Artisan Jewelry Co.",
             image: "/images/4937.jpg",
-            content: "Zynkart transformed my small jewelry business into a thriving online store. The setup was incredibly simple, and I was selling within hours. The multi-tenant architecture means my store feels completely professional and branded.",
+            content: "Supple Store transformed my small jewelry business into a thriving online store. The setup was incredibly simple, and I was selling within hours. The multi-tenant architecture means my store feels completely professional and branded.",
             rating: 5,
             revenue: "$50K+ in first year",
         },
@@ -16,7 +16,7 @@ export default function Testimonials() {
             name: "Marcus Rodriguez",
             role: "E-commerce Manager, TechGear Plus",
             image: "/images/4937.jpg",
-            content: "We manage multiple brand stores on Zynkart and the API access has been game-changing. Our development team can integrate everything seamlessly while the business team uses the intuitive dashboard.",
+            content: "We manage multiple brand stores on Supple Store and the API access has been game-changing. Our development team can integrate everything seamlessly while the business team uses the intuitive dashboard.",
             rating: 5,
             revenue: "300% growth in 6 months",
         },
@@ -48,7 +48,7 @@ export default function Testimonials() {
             name: "James Miller",
             role: "Dropshipper, Global Electronics",
             image: "/images/4937.jpg",
-            content: "The inventory management and payment processing are top-notch. I can focus on marketing and customer service while Zynkart handles all the technical complexity. Best decision for my business.",
+            content: "The inventory management and payment processing are top-notch. I can focus on marketing and customer service while Supple Store handles all the technical complexity. Best decision for my business.",
             rating: 5,
             revenue: "$100K+ GMV monthly",
         },
@@ -124,7 +124,7 @@ export default function Testimonials() {
           </motion.h2>
           <motion.p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} viewport={{ once: true }}>
             Join thousands of successful entrepreneurs who have built thriving
-            businesses with Zynkart. Here&apos;s what they have to say about their
+            businesses with Supple Store. Here&apos;s what they have to say about their
             experience.
           </motion.p>
         </motion.div>
@@ -199,7 +199,7 @@ export default function Testimonials() {
           </motion.h3>
           <motion.p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} viewport={{ once: true }}>
             Start your journey today and become our next success story. Join
-            thousands of merchants who chose Zynkart to grow their business.
+            thousands of merchants who chose Supple Store to grow their business.
           </motion.p>
           <motion.div className="flex flex-col sm:flex-row gap-4 justify-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} viewport={{ once: true }}>
             <motion.button aria-label="Start Free Trial" className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold transition-colors" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>

@@ -1,7 +1,7 @@
 import { getAllPosts } from "@/lib/blog";
 import { BlogCard } from "./_components/blog-card";
 export const metadata = {
-    title: "Blog | Zynkart - Tips for Nigerian Online Sellers",
+    title: "Blog | Supple Store - Tips for Nigerian Online Sellers",
     description: "Expert guides, tips, and insights for Nigerian online sellers. Learn how to grow your e-commerce business, accept payments, and succeed in social commerce.",
     keywords: [
         "Nigerian e-commerce blog",
@@ -14,24 +14,24 @@ export const metadata = {
         "online store guides",
     ],
     openGraph: {
-        title: "Blog | Zynkart - Tips for Nigerian Online Sellers",
+        title: "Blog | Supple Store - Tips for Nigerian Online Sellers",
         description: "Expert guides, tips, and insights for Nigerian online sellers. Learn how to grow your e-commerce business.",
         images: [
             {
                 url: "/images/screenshots/image.png",
                 width: 1919,
                 height: 1046,
-                alt: "Zynkart Blog - E-commerce Tips for Nigerian Sellers",
+                alt: "Supple Store Blog - E-commerce Tips for Nigerian Sellers",
             },
         ],
         url: "https://zynkart.store/blog",
-        siteName: "Zynkart",
+        siteName: "Supple Store",
         type: "website",
         locale: "en_NG",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Blog | Zynkart - Tips for Nigerian Online Sellers",
+        title: "Blog | Supple Store - Tips for Nigerian Online Sellers",
         description: "Expert guides and tips for Nigerian online sellers. Grow your e-commerce business.",
         images: ["/images/screenshots/image.png"],
         creator: "@zynkart",
@@ -46,12 +46,12 @@ export default function BlogPage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Blog",
-        name: "Zynkart Blog",
+        name: "Supple Store Blog",
         description: "Expert guides, tips, and insights for Nigerian online sellers",
         url: "https://zynkart.store/blog",
         publisher: {
             "@type": "Organization",
-            name: "Zynkart",
+            name: "Supple Store",
             logo: {
                 "@type": "ImageObject",
                 url: "https://zynkart.store/logo.png",
@@ -81,7 +81,7 @@ export default function BlogPage() {
             <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-12">
               <div>
                 <span className="text-xs uppercase tracking-widest text-zinc-500">
-                  Zynkart Blog
+                  Supple Store Blog
                 </span>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tighter uppercase mt-4">
                   Grow Your <br /><span className="italic font-serif">Online Business</span>
