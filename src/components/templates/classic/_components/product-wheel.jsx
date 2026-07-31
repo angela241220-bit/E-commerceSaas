@@ -7,7 +7,7 @@ import { getSavedProductIds, saveProduct, unsaveProduct, } from "@/actions/store
 import { useMemo, useEffect, useState } from "react";
 import { toast } from "sonner";
 import AddToCart from "@/components/add-to-cart";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import formatPrice from "@/lib/price-formatter";
@@ -109,7 +109,7 @@ export function ProductWheel({ storeId, circleTime = 3, productCount = 6, catego
         {products.map((product) => (<CarouselItem key={product.id} className="basis-1/2 md:basis-1/3 lg:basis-1/5">
             <div className="p-1">
               <Card className="cursor-pointer hover:shadow-lg transition-all aspect-[1/1] bg-cover duration-300 relative" style={{
-                backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(${product.images[0].url})`,
+                backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(${product.images[0]?.url || "/placeholder.svg"})`,
             }}>
                 <Link href={`/products/${product.slug}`} className="p-2 pb-1 flex flex-col h-full">
                   <Button size="sm" variant="outline" className="absolute -top-1 -right-1 w-8 h-8 p-0 rounded-full" onClick={(e) => {

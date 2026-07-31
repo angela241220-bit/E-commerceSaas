@@ -6,7 +6,7 @@ import { Footer } from "./_components/footer";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import Navbar from "./_components/navbar";
 const Home = ({ store, categoryInfo }) => {
     return <Index store={store} categoryInfo={categoryInfo}/>;

@@ -1,6 +1,6 @@
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 const Banners = ({ banners }) => {

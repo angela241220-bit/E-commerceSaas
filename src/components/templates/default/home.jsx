@@ -14,7 +14,7 @@ import { Separator } from "@/components/ui/separator";
 // import { Card, CardContent } from "@/components/ui/card";
 // import { Badge } from "@/components/ui/badge";
 // import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Link from "next/link";
+import Link from "@/components/store-link";
 // import Image from "next/image";
 import { SiteHeader } from "./_components/navbar";
 import Banners from "./_components/banners";

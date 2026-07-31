@@ -16,7 +16,7 @@ const AddToCart = ({ product }) => {
             name: product.name,
             price: product.price,
             quantity: 1,
-            image: product.images[0].url,
+            image: product.images[0]?.url || "/placeholder.svg",
             inStock: product?.inStock,
             productSlug: product.slug,
             trackQuantity: product.trackQuantity,

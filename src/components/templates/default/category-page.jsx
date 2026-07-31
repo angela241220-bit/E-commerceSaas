@@ -9,7 +9,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { ProductFilters } from "./_components/product-filters";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { SiteHeader } from "./_components/navbar";
 import Banners from "./_components/banners";
 const Home = ({ store, categoryInfo }) => {

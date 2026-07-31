@@ -1,7 +1,7 @@
 "use client";
 import { Footer } from "./_components/footer";
 import Navbar from "./_components/navbar";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
 const Categories = ({ store, categories }) => {

@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getFeaturedProducts } from "@/actions/store/public/products/featured";
 import AddToCart from "@/components/add-to-cart";
 import { Skeleton } from "@/components/ui/skeleton";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import Autoplay from "embla-carousel-autoplay";
 const HeroSkeleton = () => {
     return (<section className="bg-gradient-to-r from-blue-900 via-purple-800 to-purple-900 text-white pt-16  rounded-bl-full rounded-br-full overflow-hidden">
@@ -70,7 +70,7 @@ const Hero = ({ storeId, productCount, circleTime, categoryId, }) => {
                   <div className="flex justify-center items-center">
                     <div className="relative w-full max-w-md aspect-[1/1] rounded-full overflow-hidden">
                       <Link href={`/products/${product.slug}`}>
-                        <Image src={product.images[0].url} alt={product.images[0].alt || product.name} width={400} height={400} className="object-cover w-full h-full"/>
+                        <Image src={product.images[0]?.url || "/placeholder.svg"} alt={product.images[0]?.alt || product.name} width={400} height={400} className="object-cover w-full h-full"/>
                       </Link>
                     </div>
                   </div>

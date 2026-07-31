@@ -3,7 +3,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import formatPrice from "@/lib/price-formatter";
 import AddToCart from "@/components/add-to-cart";
 import { ArrowRight, Heart } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { useQuery } from "@tanstack/react-query";
 import { getFeaturedProducts } from "@/actions/store/public/products/featured";
 import { useState, useEffect, useMemo } from "react";
@@ -176,7 +176,7 @@ function ProductWheel({ storeId, circleTime = 3, productCount = 6, categoryId = 
                     <div className="relative flex-shrink-0">
                       <Link href={`/products/${product.slug}`} className="block group relative overflow-hidden rounded-lg sm:rounded-xl bg-background/50 p-1 sm:p-2 transition-all duration-300 hover:shadow-xl">
                         <div className="relative aspect-square w-28 sm:w-32 lg:w-[350px] overflow-hidden rounded-md sm:rounded-lg">
-                          <Image src={product.images[0].url || "/placeholder.svg"} alt={product.name} width={400} height={400} className="object-cover object-center w-full h-full transition-transform duration-500 group-hover:scale-105" priority/>
+                          <Image src={product.images[0]?.url || "/placeholder.svg"} alt={product.name} width={400} height={400} className="object-cover object-center w-full h-full transition-transform duration-500 group-hover:scale-105" priority/>
                         </div>
 
                         <div className="absolute inset-0 rounded-lg sm:rounded-xl ring-1 ring-inset ring-black/10 dark:ring-white/10 group-hover:ring-primary/20 transition-all duration-300"/>

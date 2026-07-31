@@ -6,7 +6,7 @@ import AddToCart from "@/components/add-to-cart";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "sonner";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { saveProduct, unsaveProduct, } from "@/actions/store/public/saved/products";
 const ProductCard = ({ product, isInitiallySaved }) => {
     const [isSaved, setIsSaved] = useState(isInitiallySaved);
@@ -44,7 +44,7 @@ const ProductCard = ({ product, isInitiallySaved }) => {
         }
     };
     return (<Card className="cursor-pointer hover:shadow-lg transition-all aspect-[1/1] bg-cover hover:scale-105 duration-300" style={{
-            backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(${product.images[0].url})`,
+            backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(${product.images[0]?.url || "/placeholder.svg"})`,
         }}>
       <Link href={`/products/${product.slug}`} className="p-6 pb-1 flex flex-col h-full">
         <div className="relative mb-4">

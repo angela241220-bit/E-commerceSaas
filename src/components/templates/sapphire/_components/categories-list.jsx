@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQuery } from "@tanstack/react-query";
 import { categoryList } from "@/actions/store/public/category/list";
-import Link from "next/link";
+import Link from "@/components/store-link";
 const LIMIT = 6;
 function CategoriesListSkeleton() {
     return (<section className="py-3">

@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import Navbar from "./_components/navbar";
 import { Footer } from "./_components/footer";
 export default function OrderConfirmation({ store, }) {

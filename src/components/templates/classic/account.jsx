@@ -6,7 +6,7 @@ import AccountHome from "./_components/account/home";
 import Session from "./_components/account/session";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import Orders from "./_components/account/orders";
 import SavedItems from "./_components/account/saved-items";
 import MyAddresses from "./_components/account/addresses";

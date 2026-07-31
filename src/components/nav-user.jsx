@@ -3,7 +3,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useCustomerSession } from "@/hooks/use-customer-session";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { CreditCardIcon, UserCircleIcon, BellIcon, HeartIcon, User, } from "lucide-react";
 import CustomerSignOutButton from "@/components/auth/customer-sign-out-button";
 import Image from "next/image";

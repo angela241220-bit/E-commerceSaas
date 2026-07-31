@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog";
 import formatPrice from "@/lib/price-formatter";
 import { useCartStore } from "@/store/cart";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import Navbar from "./_components/navbar";
 import { Footer } from "./_components/footer";
 import Image from "next/image";
@@ -70,7 +70,7 @@ const CartPage = ({ store }) => {
               {items.map((item) => (<Card key={item.id} className="p-4 dark:bg-[#121212] bg-[#f5f5f5] text-white">
                   <div className="flex gap-4">
                     <Link href={`/products/${item.productSlug}`}>
-                      <Image width={96} height={96} src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded cursor-pointer"/>
+                      <Image width={96} height={96} src={item.image || "/placeholder.svg"} alt={item.name} className="w-24 h-24 object-cover rounded cursor-pointer"/>
                     </Link>
                     <div className="flex-1">
                       <div className="flex justify-between">

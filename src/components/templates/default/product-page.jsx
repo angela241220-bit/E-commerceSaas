@@ -6,7 +6,7 @@ import { formatDate } from "@/lib/date-formatter";
 import { toast } from "sonner";
 import { useCartStore } from "@/store/cart";
 import ReviewsSection from "./_components/reviews-section";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { SiteHeader } from "./_components/navbar";
 import { Footer } from "./_components/footer";
 import { useQuery } from "@tanstack/react-query";

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCartStore } from "@/store/cart";
 import formatPrice from "@/lib/price-formatter";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import { saveProduct, unsaveProduct, } from "@/actions/store/public/saved/products";
 import Image from "next/image";
 const ProductCard = ({ product, isInitiallySaved = false, }) => {
@@ -21,7 +21,7 @@ const ProductCard = ({ product, isInitiallySaved = false, }) => {
             name: product.name,
             price: product.price,
             quantity: 1,
-            image: product.images[0].url,
+            image: product.images[0]?.url || "/placeholder.svg",
             inStock: product?.inStock,
             productSlug: product.slug,
             trackQuantity: product.trackQuantity,
@@ -81,8 +81,8 @@ const ProductCard = ({ product, isInitiallySaved = false, }) => {
     return (<div className="group overflow-hidden border-none shadow-sm hover:shadow-md transition-all duration-300 bg-card rounded-md" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <div className="p-0 relative">
         <Link href={`/products/${product.slug}`} className="block aspect-square overflow-hidden">
-          <Image src={product.images[0]?.url || "/placeholder.png"} alt={product.images[0]?.alt || product.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 cursor-pointer" width={500} height={500}/>
-          {product.images.length > 1 && isHovered && (<Image src={product.images[1]?.url || "/placeholder.png"} alt={product.images[1]?.alt || `${product.name} - alternate view`} className="object-cover w-full h-full absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer" width={500} height={500}/>)}
+          <Image src={product.images[0]?.url || "/placeholder.svg"} alt={product.images[0]?.alt || product.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 cursor-pointer" width={500} height={500}/>
+          {product.images.length > 1 && isHovered && (<Image src={product.images[1]?.url || "/placeholder.svg"} alt={product.images[1]?.alt || `${product.name} - alternate view`} className="object-cover w-full h-full absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer" width={500} height={500}/>)}
         </Link>
 
         {product.trackQuantity && product.inStock <= 0 && (<Badge variant="secondary" className="absolute top-2 left-2">

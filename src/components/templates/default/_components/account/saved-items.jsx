@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/store-link";
 import formatPrice from "@/lib/price-formatter";
 import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
 import { useCartStore } from "@/store/cart";
@@ -118,7 +118,7 @@ const SavedItems = () => {
                 return (<div key={item.id} className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 border-b pb-6 last:border-b-0">
                   <Link href={`/products/${item.slug}`}>
                     <div className="relative h-24 w-24 rounded-md overflow-hidden flex-shrink-0">
-                      <Image src={item.defaultImage || "/placeholder.png"} alt={item.name} fill className="object-cover"/>
+                      <Image src={item.defaultImage || "/placeholder.svg"} alt={item.name} fill className="object-cover"/>
                     </div>
                   </Link>
                   <div className="flex-1">
