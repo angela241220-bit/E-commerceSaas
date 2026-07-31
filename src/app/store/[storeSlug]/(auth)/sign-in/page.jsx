@@ -4,6 +4,7 @@ import db from "@/db";
 import { store } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
+import { getStoreUrl } from "@/lib/store-url";
 const CustomerSignInPage = async ({ params, }) => {
     const { storeSlug } = await params;
     const storeData = await db.query.store.findFirst({
@@ -21,7 +22,7 @@ const CustomerSignInPage = async ({ params, }) => {
     }
     const customer = await serverCustomerAuth();
     if (customer) {
-        return redirect(`/account`);
+        return redirect(getStoreUrl(storeSlug, "/account"));
     }
     return (<div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">
