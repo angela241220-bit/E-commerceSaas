@@ -174,7 +174,7 @@ export const NewBannerSchema = z.object({
     imageUrl: z.string().optional(),
 });
 export const shippingInfoSchema = z.object({
-    country: z.string().min(1, "Country is required"),
+    country: z.string().min(1, "Country is required").optional(),
     state: z.string().optional(),
     area: z.string().optional(),
     address: z.string().min(1, "Address is required"),
