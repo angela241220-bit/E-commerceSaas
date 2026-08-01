@@ -63,6 +63,7 @@ export default function Checkout({ shippingZones, customer, cardBg, store, }) {
         loadSavedAddresses();
     }, [form]);
     const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const hasShippingZones = shippingZones.length > 0;
     const shippingZoneOptions = shippingZones.map((zone) => ({
         value: zone.id,
         label: `${zone.area ? `${zone.area}, ` : ""}${zone.state ? `${zone.state}, ` : ""}${zone.country} - ${formatPrice(zone.shippingCost)}`,
@@ -104,7 +105,7 @@ export default function Checkout({ shippingZones, customer, cardBg, store, }) {
                 address: values.address,
                 area: selectedZone?.area || undefined,
                 state: selectedZone?.state || undefined,
-                country: selectedZone?.country || "",
+                country: selectedZone?.country || undefined,
                 phoneNumber: values.primaryPhone,
                 secondaryPhoneNumber: values.secondaryPhone || undefined,
                 additionalInfo: values.additionalInfo || undefined,
@@ -288,7 +289,7 @@ export default function Checkout({ shippingZones, customer, cardBg, store, }) {
               </div>
             </CardContent>
           </Card>
-          <Button type="submit" size="lg" className="w-full" disabled={!selectedZoneId || !form.formState.isValid || isPending} onClick={form.handleSubmit(onSubmit)}>
+          <Button type="submit" size="lg" className="w-full" disabled={(hasShippingZones && !selectedZoneId) || !form.formState.isValid || isPending} onClick={form.handleSubmit(onSubmit)}>
             Place Order
           </Button>
           <p className="text-sm text-muted-foreground font-semibold">
